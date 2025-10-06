@@ -56,15 +56,22 @@ Erinevused klastreeritud ja mitte-klastreeritud indeksi vahel:
 3. Klastreeritud indeks määratleb ära tabeliridade salvestusjärjestuse ja ei nõua kettal lisaruumi. Samas mitte-klastreeritud on salvestatud tabelist eraldi ja on vaja lisaruumi.
 */
 
+
 /*
 Luues unikaalse piirangu, mis loob unikaalse indeksi. Seda saab luua,
 kui kasutad CREATE INDEX käsklust või siis kaudselt ning milles kasutatakse UNIQUE piirangut
 Millal kumma kasuks otsustada? Unikaalse piirangu puhul oleks kasulik kasutada, kui andmete terviklikus on objektiivne.
 Mõlemal juhul toimub andmete valideerimine sama moodi ja päringu optimeerimine ei erine.
 */
-
 CREATE UNIQUE INDEX IX_tblEmployee_City
 ON DimEmployee(DepartmentName)
 WITH IGNORE_DUP_KEY
 
 select * from DimEmployee
+
+-- Indeksi plussid ja miinused
+create nonclustered index IX_DimEmployee_Salary
+on DimEmployee (BaseRate asc)
+
+-- needs to be ended
+delete from 

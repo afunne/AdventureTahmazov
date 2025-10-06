@@ -1,1 +1,14 @@
-something
+git config --global user.name "Hussein Tahmazov"
+gti config --global user.email "tahmazovhussein@"
+git init
+git init
+git config --global --list
+
+------
+muudatuste kimmitamine
+
+git status
+git add .
+git commit -a -m "tegevus mis on tehtud"
+
+git push

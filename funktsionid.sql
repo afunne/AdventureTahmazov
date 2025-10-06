@@ -23,3 +23,12 @@ return (select FirstName from DimEmployee Where EmployeeKey = @Id)
 end;
 
 select * from fn_GetEmployeeNameById();
+
+Alter Function fn_GetEmployeeNameById(@Id int)
+
+Returns nvarchar(20)
+With encryption
+as
+begin
+return (select FirstName from DimEmployee where EmployeeKey = @Id)
+end;

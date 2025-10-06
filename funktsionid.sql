@@ -32,3 +32,14 @@ as
 begin
 return (select FirstName from DimEmployee where EmployeeKey = @Id)
 end;
+
+alter function fn_GetEmployeeNameById(@Id int)
+
+returns nvarchar(20)
+with SchemaBinding
+as
+begin
+return (select FirstName from dbo.DimEmployee where EmployeeKey = @Id)
+end;
+
+select * from fn_GetEmployeeNameById();

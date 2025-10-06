@@ -12,3 +12,9 @@ git add .
 git commit -a -m "tegevus mis on tehtud"
 
 git push
+
+---
+ssh võti loomiseks:
+ssh võti loomiseks: id_rsa.pub on vaja lisada github'i nagu deploy key
+
+ssh-keygen -o -t rsa -C "irina@tthk.ee

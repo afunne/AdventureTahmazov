@@ -13,3 +13,17 @@ where name like '#PersonDetails%';
 
 DROP TABLE #PersonDetails;
 
+Create Procedure spCreateLocalTempTable
+as
+begin
+Create Table #PersonDetails(Id int, FirstName nvarchar(20))
+Insert into #PersonDetails values(1, 'Mike')
+Insert into #PersonDetails values(2, 'John')
+Insert into #PersonDetails values(3, 'Todd')
+
+select * from #PersonDetails
+end;
+
+spCreateLocalTempTable;
+
+

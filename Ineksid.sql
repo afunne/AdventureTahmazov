@@ -76,3 +76,7 @@ on DimEmployee (BaseRate asc)
 -- Indeksi plussid ja miinused
 -- Indeksist lähtuvalt on kergem üles otsida palkasid, mis jäävad vahemikku 4000 kuni 8000 ning kasutada reaaadressi.
 SELECT * FROM DimEmployee WHERE BaseRate > 5 AND BaseRate < 10
+
+-- Kui soovid uuendada või kustutada rida, siis SQL server peab esmalt leidma rea ja indeks saab aidata seda otsingut kiirendada.
+DELETE FROM DimEmployee WHERE BaseRate = 9.50
+UPDATE DimEmployee SET BaseRate = 50 WHERE BaseRate = 9.25

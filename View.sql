@@ -33,7 +33,7 @@ JOIN DimDepartmentGroup
 ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
 WHERE DimDepartmentGroup.DepartmentGroupName = 'Corporate';
 
-SELECT * FROM vWCorporateDepartment_Employees
+SELECT * FROM vwCorporateDepartment_Employees
 
 -- View, kus ei ole BaseRate veergu
 CREATE VIEW vwEmployeesNonConfData
@@ -43,3 +43,15 @@ FROM DimEmployee
 JOIN DimDepartmentGroup
 ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey;
 
+SELECT * FROM vwEmployeesNonConfData
+
+-- View, mis tagastab summeeritud andmed töötajate koondarvest.
+CREATE VIEW vwEmployeesCountByDepartment
+AS
+SELECT DepartmentName, COUNT(DepartmentGroupKey) AS TotalEmployees
+FROM DimEmployee
+JOIN DimDepartmentGroup
+ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
+GROUP BY DepartmentName;
+
+SELECT * FROM vWEmployeesCountByDepartment

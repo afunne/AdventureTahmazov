@@ -25,10 +25,21 @@ SELECT * FROM vWEmployeeByDepartment;
 drop view vWEmployeeByDepartment;
 
 -- View, mis tagastab ainult Corporate osakonna töötajad
-CREATE VIEW vWCorporateDepartment_Employees
+CREATE VIEW vwCorporateDepartment_Employees
 AS
 SELECT EmployeeKey, FirstName, BaseRate, DepartmentName
 FROM DimEmployee
 JOIN DimDepartmentGroup
 ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
 WHERE DimDepartmentGroup.DepartmentGroupName = 'Corporate';
+
+SELECT * FROM vWCorporateDepartment_Employees
+
+-- View, kus ei ole BaseRate veergu
+CREATE VIEW vwEmployeesNonConfData
+AS
+SELECT EmployeeKey, FirstName, Gender, DepartmentName
+FROM DimEmployee
+JOIN DimDepartmentGroup
+ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey;
+

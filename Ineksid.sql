@@ -73,5 +73,6 @@ select * from DimEmployee
 create nonclustered index IX_DimEmployee_Salary
 on DimEmployee (BaseRate asc)
 
--- needs to be ended
-delete from 
+-- Indeksi plussid ja miinused
+-- Indeksist lähtuvalt on kergem üles otsida palkasid, mis jäävad vahemikku 4000 kuni 8000 ning kasutada reaaadressi.
+SELECT * FROM DimEmployee WHERE BaseRate > 5 AND BaseRate < 10

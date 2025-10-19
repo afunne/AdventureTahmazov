@@ -93,3 +93,10 @@ ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey;
 
 SELECT * FROM vwEmployeeDetailsByDept;
 
+-- Nüüd uuendame John osakonda HR pealt Corporate peale. Hetkel on kaks töötajat HR osakonnas
+-- HR - Human Resources
+UPDATE vwEmployeeDetailsByDept
+SET DepartmentName = 'Corporate' WHERE FirstName = 'John'
+-- proovin
+SELECT * FROM DimEmployee
+

@@ -54,4 +54,12 @@ JOIN DimDepartmentGroup
 ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
 GROUP BY DepartmentName;
 
-SELECT * FROM vWEmployeesCountByDepartment
+SELECT * FROM vWEmployeesCountByDepartment;
+
+-- Kui soovid vaadata view definitsiooni
+sp_helptext vWName
+-- Kui soovid muuta view-d
+ALTER VIEW
+-- Kui soovid kustutada view-d 
+DROP VIEW vWName
+

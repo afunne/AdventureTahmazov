@@ -23,3 +23,12 @@ ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
 SELECT * FROM vWEmployeeByDepartment;
 
 drop view vWEmployeeByDepartment;
+
+-- View, mis tagastab ainult Corporate osakonna töötajad
+CREATE VIEW vWCorporateDepartment_Employees
+AS
+SELECT EmployeeKey, FirstName, BaseRate, DepartmentName
+FROM DimEmployee
+JOIN DimDepartmentGroup
+ON DimEmployee.DepartmentName = DimDepartmentGroup.DepartmentGroupKey
+WHERE DimDepartmentGroup.DepartmentGroupName = 'Corporate';

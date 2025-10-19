@@ -88,3 +88,8 @@ SELECT * FROM DimEmployee ORDER BY BaseRate
 
 -- BaseRate veeru indeks saab aidata ka allpool olevat päringut. Seda tehakse indeksi tagurpidi skanneerimises.
 SELECT * FROM DimEmployee ORDER BY BaseRate DESC
+
+-- GROUP BY päringud saavad kasu indeksitest. Kui soovid grupeerida töötajaid sama palgaga, siis päringumootor saab kasutada BaseRate veeru indeksit
+SELECT BaseRate, COUNT(BaseRate) AS Total
+FROM DimEmployee
+GROUP BY BaseRate

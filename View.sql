@@ -63,3 +63,11 @@ ALTER VIEW
 -- Kui soovid kustutada view-d 
 DROP VIEW vWName
 
+-- View uuendused
+-- Teeme View, mis tagastab peaaegu kõik veerud, aga va Salary veerg.
+CREATE VIEW vwEmployeesDataExSalary
+AS
+SELECT EmployeeKey, FirstName, Gender, DepartmentName
+FROM DimEmployee;
+
+SELECT * FROM vwEmployeesDataExSalary;

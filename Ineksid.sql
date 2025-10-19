@@ -80,3 +80,8 @@ SELECT * FROM DimEmployee WHERE BaseRate > 5 AND BaseRate < 10
 -- Kui soovid uuendada või kustutada rida, siis SQL server peab esmalt leidma rea ja indeks saab aidata seda otsingut kiirendada.
 DELETE FROM DimEmployee WHERE BaseRate = 9.50
 UPDATE DimEmployee SET BaseRate = 50 WHERE BaseRate = 9.25
+
+SELECT * FROM DimEmployee
+
+-- See välistab päringu käivitamisel ridade sorteerimise, mis oluliselt  suurendab  protsessiaega.
+SELECT * FROM DimEmployee ORDER BY BaseRate

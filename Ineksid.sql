@@ -85,3 +85,6 @@ SELECT * FROM DimEmployee
 
 -- See välistab päringu käivitamisel ridade sorteerimise, mis oluliselt  suurendab  protsessiaega.
 SELECT * FROM DimEmployee ORDER BY BaseRate
+
+-- BaseRate veeru indeks saab aidata ka allpool olevat päringut. Seda tehakse indeksi tagurpidi skanneerimises.
+SELECT * FROM DimEmployee ORDER BY BaseRate DESC

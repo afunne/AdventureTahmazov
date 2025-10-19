@@ -71,3 +71,15 @@ SELECT EmployeeKey, FirstName, Gender, DepartmentName
 FROM DimEmployee;
 
 SELECT * FROM vwEmployeesDataExSalary;
+
+-- Järgnev päring uuendab Name veerus olevat nime Mike Mikey peale. 
+UPDATE vWEmployeesDataExSalary
+SET FirstName = 'Mikey' WHERE EmployeeKey = 2
+-- Käivita
+SELECT * FROM DimEmployee
+
+-- Loome view, mis ühendab kaks eelpool käsitletud tabelit ja
+-- annab sellise tulemuse:Samas on võimalik sisestada ja kustutada ridu baastabelis ning kasutada view-d.
+DELETE FROM vwEmployeesDataExSalary WHERE EmployeeKey = 2
+INSERT INTO vwEmployeesDataExSalary VALUES (2, 'Mikey', 'M', 2)
+
